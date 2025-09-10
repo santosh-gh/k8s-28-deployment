@@ -19,7 +19,7 @@ metadata:
   name: flux-system
   namespace: flux-system
 spec:
-  interval: 10m0s
+  interval: 1m0s
   path: ./clusters/demo-cluster
   prune: true
   sourceRef:
@@ -33,7 +33,7 @@ metadata:
   namespace: flux-system
 spec:
   type: oci
-  interval: 10m
+  interval: 1m
   url: oci://ghcr.io/santosh-gh/helm-charts/online-store
   # secretRef:
   #   name: ghcr-credentials  # if private
