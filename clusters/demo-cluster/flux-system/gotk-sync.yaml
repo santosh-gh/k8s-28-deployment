@@ -34,6 +34,8 @@ metadata:
 spec:
   type: "oci"
   interval: 5m0s
+  secretRef:
+    name: flux-system
   url: oci://ghcr.io/santosh-gh/helm-charts/online-store
   # secretRef:
   #   name: ghcr-credentials  # if private
