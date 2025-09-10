@@ -25,18 +25,4 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
----
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
-metadata:
-  name: online-store-repo
-  namespace: flux-system
-spec:
-  type: "oci"
-  interval: 5m0s
-  secretRef:
-    name: flux-system
-  url: oci://ghcr.io/santosh-gh/helm-charts/online-store
-  # secretRef:
-  #   name: ghcr-credentials  # if private
 
