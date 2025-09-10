@@ -32,7 +32,7 @@ metadata:
   name: online-store-repo
   namespace: flux-system
 spec:
-  type: oci
+  type: "oci"
   interval: 5m0s
   url: oci://ghcr.io/santosh-gh/helm-charts/online-store
   # secretRef:
