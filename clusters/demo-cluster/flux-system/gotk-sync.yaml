@@ -33,7 +33,7 @@ metadata:
   namespace: flux-system
 spec:
   type: oci
-  interval: 1m
+  interval: 5m0s
   url: oci://ghcr.io/santosh-gh/helm-charts/online-store
   # secretRef:
   #   name: ghcr-credentials  # if private
