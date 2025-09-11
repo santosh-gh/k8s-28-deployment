@@ -430,7 +430,7 @@ flux create secret oci ghcr-helm-cred \
   --password=$GITHUB_TOKEN
 
 
-  kubectl create secret docker-registry ghcr-helm-cred1 \
+  kubectl create secret docker-registry ghcr-helm-cred2 \
   --namespace=flux-system \
   --docker-server=ghcr.io \
   --docker-username=$GITHUB_USER \
@@ -443,3 +443,5 @@ helm registry login ghcr.io \
   --password $GITHUB_TOKEN
 
 helm show all oci://ghcr.io/santosh-gh/helm-charts/online-store --version 1.0.0
+
+flux logs -n flux-system | grep online-store-repo
