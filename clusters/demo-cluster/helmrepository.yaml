@@ -8,4 +8,4 @@ spec:
   interval: 1m
   url: oci://ghcr.io/santosh-gh/online-store-charts   # your GitHub OCI registry with charts
   secretRef:
-    name: ghcr-helm-secret
+    name: ghcr-helmchart-secret
