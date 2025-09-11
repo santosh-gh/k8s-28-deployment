@@ -422,3 +422,9 @@ helm package ./helmchart
 helm push online-store-0.1.0.tgz oci://ghcr.io/santosh-gh/online-store-charts
 
 helm pull oci://ghcr.io/santosh-gh/helm-charts/online-store --version 0.1.0
+
+
+flux create secret oci ghcr-helm-cred \
+  --url=oci://ghcr.io/santosh-gh/helm-charts/online-store \
+  --username=$GITHUB_USER \
+  --password=$GITHUB_TOKEN
