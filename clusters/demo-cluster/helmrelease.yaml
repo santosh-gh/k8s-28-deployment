@@ -1,0 +1,43 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: online-store
+  namespace: default
+spec:
+  interval: 1m
+  releaseName: helmchart
+  chart:
+    spec:
+      chart: online-store
+      version: "1.0.0"
+      sourceRef:
+        kind: HelmRepository
+        name: online-store-repo
+        namespace: flux-system
+  values:
+    orderService:
+      nodeSelector:
+        kubernetes.io/os: linux
+      orderService:
+        env:
+          fastifyAddress: 0.0.0.0
+          orderQueueHostname: rabbitmq
+          orderQueueName: orders
+          orderQueuePassword: password
+          orderQueuePort: "5672"
+          orderQueueUsername: username
+        image:
+          repository: e880613/order
+          tag: v1
+        resources:
+          limits:
+            cpu: 75m
+            memory: 128Mi
+          requests:
+            cpu: 1m
+            memory: 50Mi
+      ports:
+      - name: http
+        port: 3000
+        targetPort: 3000
+      replicas: 5
