@@ -6,6 +6,6 @@ metadata:
 spec:
   type: oci
   interval: 1m
-  url: oci://ghcr.io/santosh-gh/helm-charts/   # your GitHub OCI registry with charts
+  url: oci://ghcr.io/santosh-gh/helm-charts/online-store   # your GitHub OCI registry with charts
   secretRef:
     name: ghcr-helm-cred
