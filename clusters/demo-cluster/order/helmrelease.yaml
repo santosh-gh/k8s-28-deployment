@@ -14,3 +14,10 @@ spec:
         kind: HelmRepository
         name: online-store-repo
         namespace: flux-system
+  values:
+    orderService:
+      nodeSelector:
+        kubernetes.io/os: linux      
+      replicas: 6
+
+

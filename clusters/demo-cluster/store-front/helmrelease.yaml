@@ -14,3 +14,11 @@ spec:
         kind: HelmRepository
         name: online-store-repo
         namespace: flux-system
+  values:
+    storeFront:
+      nodeSelector:
+        kubernetes.io/os: linux
+      ports:
+      - port: 80
+        targetPort: 8080
+      replicas: 2
