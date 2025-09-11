@@ -239,7 +239,9 @@
 
     Part28: GitOps using Flux (Microservice + Flux + Helm Chart + HelmRepository)             
             Helm Chart with multiple Microservices
-            Helm Charts in HelmRepository
+            Helm Charts in HelmRepository (GitHub Container Registry)
+            OCI
+            Private Repository
 
     GitHub:  https://github.com/santosh-gh/k8s-28-development.git     
     GitHub:  https://github.com/santosh-gh/k8s-28-deployment.git
