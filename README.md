@@ -374,7 +374,38 @@
     # Create a Kustomization File
     # Link the Application Directory to FluxCD
 
+# HelmRepository types in Flux
+
+  HTTP/HTTPS Helm Repositories (classic Helm repo)
+  A standard Helm chart repository exposed over HTTP/HTTPS with an index.yaml.
+  e.g. Bitnami
+
+  OCI-based Helm Repositories (container registries)
+  Charts stored in an OCI-compatible registry (e.g. GHCR, ACR, ECR, GCP Artifact Registry, Docker Hub).
+
+  Private Helm Repositories (private HTTP/HTTPS or OCI)
+  Flux can pull from private repos using a Secret
+
+# Create a secrete
+
+  Flux expects Helm OCI credentials as a docker-registry Secret, with a .dockerconfigjson field.
+
+
+  k create secret docker-registry ghcr-helmchart-secret \
+    --namespace=flux-system \
+    --docker-server=ghcr.io \
+    --docker-username=$GITHUB_USER \
+    --docker-password=$GITHUB_TOKEN \
+    --docker-email=santosh.mohapatra25@gmail.com
+
+  k get secret ghcr-helmchart-secret -n flux-system -o yaml
+
+
 # Commit and Push to Repository
+
+
+
+
 
 # Verify FluxCD Reconciliation
   Trigger Reconciliation:
@@ -415,12 +446,6 @@ export GITHUB_USER='santosh-gh'
 helm registry login ghcr.io -u $GITHUB_USER --password-stdin
 
 
-kubectl create secret docker-registry ghcr-helm-secret \
-  --namespace=flux-system \
-  --docker-server=ghcr.io \
-  --docker-username=$GITHUB_USER \
-  --docker-password=$GITHUB_TOKEN \
-  --docker-email=santosh.mohapatra25@gmail.com
 
   
 
