@@ -430,7 +430,7 @@ flux create secret oci ghcr-helm-cred \
   --password=$GITHUB_TOKEN
 
 
-  kubectl create secret docker-registry ghcr-helm-cred2 \
+  kubectl create secret docker-registry ghcr-helm-cred \
   --namespace=flux-system \
   --docker-server=ghcr.io \
   --docker-username=$GITHUB_USER \
