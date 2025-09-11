@@ -412,10 +412,17 @@ kind delete cluster --name demo-cluster
 
 export GITHUB_USER='santosh-gh'
 
+helm registry login ghcr.io -u $GITHUB_USER --password-stdin
 
 
+kubectl create secret docker-registry ghcr-helm-secret \
+  --namespace=flux-system \
+  --docker-server=ghcr.io \
+  --docker-username=$GITHUB_USER \
+  --docker-password=$GITHUB_TOKEN \
+  --docker-email=santosh.mohapatra25@gmail.com
 
-helm registry login ghcr.io -u GITHUB_USER --password-stdin
+  
 
 helm package ./helmchart
 
@@ -430,12 +437,7 @@ flux create secret oci ghcr-helm-cred \
   --password=$GITHUB_TOKEN
 
 
-  kubectl create secret docker-registry ghcr-helm-cred \
-  --namespace=flux-system \
-  --docker-server=ghcr.io \
-  --docker-username=$GITHUB_USER \
-  --docker-password=$GITHUB_TOKEN \
-  --docker-email=santosh.mohapatra25@gmail.com
+  
 
 
 helm registry login ghcr.io \
