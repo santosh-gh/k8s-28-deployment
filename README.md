@@ -428,3 +428,18 @@ flux create secret oci ghcr-helm-cred \
   --url=oci://ghcr.io/santosh-gh/helm-charts/online-store \
   --username=$GITHUB_USER \
   --password=$GITHUB_TOKEN
+
+
+  kubectl create secret docker-registry ghcr-helm-cred1 \
+  --namespace=flux-system \
+  --docker-server=ghcr.io \
+  --docker-username=$GITHUB_USER \
+  --docker-password=$GITHUB_TOKEN \
+  --docker-email=santosh.mohapatra25@gmail.com
+
+
+helm registry login ghcr.io \
+  --username $GITHUB_USER \
+  --password $GITHUB_TOKEN
+
+helm show all oci://ghcr.io/santosh-gh/helm-charts/online-store --version 1.0.0
